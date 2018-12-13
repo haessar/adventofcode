@@ -7,7 +7,8 @@ def iter_freq():
 			except ValueError:
 				break
 
-# print sum(iter_freq())
+print sum(iter_freq())
+
 
 # 1.2
 def iter_cumsum(gen, init=0):
@@ -15,7 +16,6 @@ def iter_cumsum(gen, init=0):
     for freq in gen:
         cumsum += freq
         yield cumsum
-
 
 def first_duplicate_freq():
 	counter = set()
@@ -25,9 +25,8 @@ def first_duplicate_freq():
 		for f in iter_cumsum(iter_freq(), init):
 			counter.add( f )
 			if len(counter) < idx:
-				print f
-				return
+				return f
 			idx += 1
 		init = f
 
-first_duplicate_freq()
+print first_duplicate_freq()
