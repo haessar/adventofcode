@@ -11,9 +11,9 @@ print sum(iter_freq())
 
 
 # 1.2
-def iter_cumsum(gen, init=0):
+def iter_cumsum(init=0):
     cumsum = init
-    for freq in gen:
+    for freq in iter_freq():
         cumsum += freq
         yield cumsum
 
@@ -22,7 +22,7 @@ def first_duplicate_freq():
 	idx = 1
 	init = 0
 	while True:	
-		for f in iter_cumsum(iter_freq(), init):
+		for f in iter_cumsum(init):
 			counter.add( f )
 			if len(counter) < idx:
 				return f
